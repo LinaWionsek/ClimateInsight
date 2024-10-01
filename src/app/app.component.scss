@@ -1,0 +1,106 @@
+.mat-drawer-container {
+    height: 100vh;
+}
+
+.menu-icon {
+    cursor: pointer;
+}
+
+.sidenav {
+    width: 300px;
+    
+}
+.menu-items{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  
+
+    li {
+        padding-left: 16px;
+        padding-right: 16px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        outline: none;
+
+        mat-icon {
+            margin-right: 16px;
+        }
+
+        &:hover {
+            background-color: rgba(0,0,0,0.04);
+        }
+    }
+}
+
+.logo-container {
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+    padding-left: 16px;
+    padding-right: 16px;
+    min-height: 56px;
+    display: flex;
+    align-items: center;
+    img {
+        height: 48px;
+    }
+}
+
+mat-toolbar {
+    min-height: 56px;
+    height: 56px;
+}
+
+.router-container {
+    padding-left: 56px;
+    padding-right: 56px;
+    padding-top: 16px;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  
+/* ------------------------------------------------------------- */
+
+  .is-mobile mat-toolbar {
+    position: fixed;
+    /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+    z-index: 2;
+  }
+  
+  
+  .sidenav-container {
+    /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
+       causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
+    flex: 1;
+  }
+  
+  .is-mobile .sidenav-container {
+    /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
+       `<body>` to be our scrolling element for mobile layouts. */
+    flex: 1 0 auto;
+  }
+  
+/* ------------------------------------------------------------- */
+
+@media (max-width: 600px) {
+    .router-container {
+        padding-left: 48px;
+        padding-right: 48px;
+    }
+}
+
+@media (max-width: 480px) {
+    .router-container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}

@@ -1,4 +1,52 @@
 <p>weather-card works!</p>
-<!-- {{name}}<br>
-Temp {{temp}}°C -->
-{{weatherData.name}}
+
+{{timeOfCalculation}}
+{{weatherData.name}}<br>
+<div *ngIf="weatherData.weather && weatherData.weather.length > 0">
+    {{weatherData.weather[0].main}}
+   
+    <!-- @if (weatherData.weather[0].main == "Rain") {
+       <div>TEST</div>
+    } -->
+
+    @switch (weatherData.weather[0].main) {
+        @case ("Rain") {
+           RAIN
+        }
+        @case ("Clouds") {
+            CLOUDS
+        }
+        @default{
+           
+        }
+    }
+
+
+
+    {{weatherData.weather[0].description}} <br>
+
+
+
+</div>
+
+ 
+<div *ngIf="weatherData.rain">
+   Precipitation 1hr:  {{weatherData.rain?.["1h"]}} mm/h:
+</div>
+Temperature 
+{{weatherData.main?.temp}} <br>
+Feels Like
+{{weatherData.main?.feels_like}} <br>
+Temperature Min
+{{weatherData.main?.temp_min}}<br>
+Temperature Max
+{{weatherData.main?.temp_max}}<br>
+Sunrise
+{{sunrise}}<br>
+Sunset
+{{sunset}} <br>
+
+Cloudiness {{weatherData.clouds?.all}}% <br>
+
+
+

@@ -6,7 +6,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class DataService {
-  private citySubject = new BehaviorSubject<any>({});
+  citySubject = new BehaviorSubject<object>({});
 
   constructor(private http: HttpClient) {}
   ApiKey = '037abbf0f7839788885661e47e98c7e3';
@@ -32,7 +32,7 @@ export class DataService {
     }
   }
 
-  returnData() {
-    return this.citySubject.asObservable();
-  }
+  // returnData() {
+  //   return this.citySubject.asObservable();
+  // }
 }

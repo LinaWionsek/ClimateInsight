@@ -1,15 +1,45 @@
-<p>weather-card works!</p>
+@if (weatherData.current && weatherData.location) {
+<h1>Current Weather</h1>
 
-{{timeOfCalculation}}
+
+<mat-card class="example-card" appearance="outlined">
+    <mat-card-header>
+        <mat-card-title>{{weatherData.location.name}}</mat-card-title>
+        <mat-card-subtitle> last updated {{lastUpdate}} </mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+
+        <div class="condition-container">
+            <img mat-card-sm-image src="{{weatherData.current.condition.icon}}">
+            {{weatherData.current.condition.text}} <br>
+        </div>
+
+
+        <h2> {{weatherData.current.temp_c}}°C</h2>
+
+        feelslike {{weatherData.current.feelslike_c}}°C
+
+    </mat-card-content>
+</mat-card>
+
+
+
+
+
+}
+
+
+<!-- {{timeOfCalculation}}
 {{weatherData.name}}<br>
 <div *ngIf="weatherData.weather && weatherData.weather.length > 0">
-    {{weatherData.weather[0].main}}
-   
-    <!-- @if (weatherData.weather[0].main == "Rain") {
+    {{weatherData.weather[0].main}} -->
+
+<!-- @if (weatherData.weather[0].main == "Rain") {
        <div>TEST</div>
     } -->
 
-    @switch (weatherData.weather[0].main) {
+<!-- @switch (weatherData.weather[0].main) {
         @case ("Rain") {
            RAIN
         }
@@ -20,17 +50,11 @@
            
         }
     }
-
-
-
     {{weatherData.weather[0].description}} <br>
+</div> -->
 
 
-
-</div>
-
- 
-<div *ngIf="weatherData.rain">
+<!-- <div *ngIf="weatherData.rain">
    Precipitation 1hr:  {{weatherData.rain?.["1h"]}} mm/h:
 </div>
 Temperature 
@@ -46,7 +70,4 @@ Sunrise
 Sunset
 {{sunset}} <br>
 
-Cloudiness {{weatherData.clouds?.all}}% <br>
-
-
-
+Cloudiness {{weatherData.clouds?.all}}% <br> -->

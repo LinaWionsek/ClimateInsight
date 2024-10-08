@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { WeatherCardComponent } from './weather-card/weather-card.component';
+import { WeatherForecastComponent } from './weather-forecast/weather-forecast.component';
 import { DataService } from '../data.service';
 import { FormsModule } from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -9,7 +10,7 @@ import {MatButtonModule} from '@angular/material/button';
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [WeatherCardComponent, FormsModule, MatFormFieldModule, MatIconModule, MatInputModule, MatButtonModule],
+  imports: [WeatherCardComponent, WeatherForecastComponent, FormsModule, MatFormFieldModule, MatIconModule, MatInputModule, MatButtonModule],
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss',
 })

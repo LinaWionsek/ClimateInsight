@@ -13,6 +13,8 @@ export class DataService {
   ApiKey = '3c4345da9ed94ea983d130855240710';
 
 
+ // forecast https://api.weatherapi.com/v1/forecast.json?key=3c4345da9ed94ea983d130855240710&q=london&days=3
+
   // http://api.weatherapi.com/v1/current.json?key=<YOUR_API_KEY>&q=London
   //Der Service fügt den Stadtnamen in die URL ein und macht den API-Aufruf.
   //Wenn die Daten ankommen, werden sie in einem BehaviorSubject gespeichert.
@@ -20,8 +22,8 @@ export class DataService {
     if (city) {
       this.http
         .get(
-          'https://api.weatherapi.com/v1/current.json?key=3c4345da9ed94ea983d130855240710&q=' +
-            city 
+          'https://api.weatherapi.com/v1/forecast.json?key=3c4345da9ed94ea983d130855240710&q=' +
+            city + '&days=3'
         )
         .subscribe(
           (data) => {

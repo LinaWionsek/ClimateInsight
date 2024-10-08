@@ -1,0 +1,40 @@
+@if (weatherData.forecast && weatherData.location) {
+<h1>Weather Forecast 3 Days</h1>
+
+<h2>{{weatherData.location.name}}</h2>
+
+<div class="forecast-days-container">
+    @for (singleDay of weatherData.forecast.forecastday; track $index) {
+        <mat-card class="example-card" appearance="outlined">
+            <mat-card-header>
+                <mat-card-title>{{singleDay.date | date: 'd/M/yyyy'}}</mat-card-title>
+                <!-- <mat-card-subtitle> last updated {{lastUpdate}} </mat-card-subtitle> -->
+            </mat-card-header>
+        
+            <mat-card-content>
+        
+                <div class="condition-container">
+                    <img mat-card-sm-image src="{{singleDay.day.condition.icon}}">
+                    {{singleDay.day.condition.text}} <br>
+                </div>
+        
+        
+                <h2> {{singleDay.day.mintemp_c}}° / {{weatherData.forecast.forecastday[0].day.maxtemp_c}}°</h2>
+        
+                <!-- {{weatherData.current.feelslike_c}}°C -->
+                Chance of rain {{singleDay.day.daily_chance_of_rain}}% <br>
+                Precipitation amount {{singleDay.day.totalprecip_mm}}mm <br>
+                Maximal windspeed {{singleDay.day.maxwind_kph}} km/h<br>
+                <!-- daily_chance_of_rain: 95
+            daily_chance_of_snow: 0
+            daily_will_it_rain: 1
+            daily_will_it_snow: 0 -->
+            </mat-card-content>
+        </mat-card>
+        
+        }
+</div>
+
+
+
+}

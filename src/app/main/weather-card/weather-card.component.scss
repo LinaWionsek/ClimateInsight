@@ -1,4 +1,20 @@
+.card {
+  width: 240px;
+  span {
+    font-weight: 500;
+  }
+}
+.stats {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.fw-bold {
+  font-weight: 500;
+}
+
 .condition-container {
-    display: flex;
-    flex-direction: column;
+  img {
+    padding-bottom: 12px;
+  }
 }

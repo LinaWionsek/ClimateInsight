@@ -2,23 +2,26 @@
 <h1>Current Weather</h1>
 
 
-<mat-card class="example-card" appearance="outlined">
+<mat-card class="card" appearance="outlined">
     <mat-card-header>
         <mat-card-title>{{weatherData.location.name}}</mat-card-title>
-        <mat-card-subtitle> last updated {{lastUpdate | date: 'd/M/yyyy'}} </mat-card-subtitle>
+        <mat-card-subtitle>last updated {{lastUpdate}} </mat-card-subtitle>
     </mat-card-header>
 
     <mat-card-content>
 
         <div class="condition-container">
-            <img mat-card-sm-image src="{{weatherData.current.condition.icon}}">
+            <img mat-card-sm-image src="{{weatherData.current.condition.icon}}"><br>
             {{weatherData.current.condition.text}} <br>
         </div>
 
 
         <h2> {{weatherData.current.temp_c}}°C</h2>
+        <div class="stats">
+            <span class="fw-bold">feelslike</span>
+            <span>{{weatherData.current.feelslike_c}}°C</span>
+        </div>
 
-        feelslike {{weatherData.current.feelslike_c}}°C
 
     </mat-card-content>
 </mat-card>

@@ -1,11 +1,26 @@
+.card {
+  width: 240px;
+}
+
 .condition-container {
   display: flex;
   flex-direction: column;
+  img {
+    padding-bottom: 12px;
+  }
 }
-
+.stats {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.1);
+}
 .forecast-days-container {
   display: flex;
-  justify-content: center;
+  gap: 16px;
+}
+
+.fw-bold {
+  font-weight: 500;
 }
 
 @media (max-width: 768px) {

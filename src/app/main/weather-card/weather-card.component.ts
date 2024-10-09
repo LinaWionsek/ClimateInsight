@@ -27,7 +27,7 @@ export class WeatherCardComponent {
       this.lastUpdate = this.weatherData.current
         ? new Date(
             this.weatherData.current.last_updated_epoch * 1000
-          ).toLocaleString('en-US')
+          ).toLocaleString('en-001')
         : '';
 
       console.log(this.weatherData);

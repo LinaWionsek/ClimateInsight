@@ -10,15 +10,24 @@ import { MatCardModule } from '@angular/material/card';
   templateUrl: './weather-card.component.html',
   styleUrl: './weather-card.component.scss',
 })
+
 export class WeatherCardComponent {
   private dataService = inject(DataService);
   weatherData: any;
   sunrise: string = '';
   sunset: string = '';
   lastUpdate: string = '';
+  
   //Die zweite Komponente abonniert die Daten vom Service.
   //Sobald neue Daten verfügbar sind, werden sie automatisch in der Komponente
   //aktualisiert und angezeigt.
+
+  
+  /**
+   * Subscribes to citySubject and sets the weatherData property.
+   * Sets the lastUpdate property with the localized date string.
+   * Sets the sunrise and sunset properties with the localized time strings.
+   */
   ngOnInit() {
     this.dataService.getData('London');
     this.dataService.citySubject.subscribe((data) => {
@@ -29,17 +38,6 @@ export class WeatherCardComponent {
             this.weatherData.current.last_updated_epoch * 1000
           ).toLocaleString('en-001')
         : '';
-
-      console.log(this.weatherData);
-
-
-
-      console.log(this.weatherData.main);
-      console.log(this.weatherData.main?.temp_max);
-      console.log(this.weatherData.main?.temp_min);
-      console.log(this.weatherData.main?.feels_like);
-      console.log(this.weatherData.sys?.sunrise);
-
       let sunriseUNIX = this.weatherData.sys?.sunrise;
       let sunsetUNIX = this.weatherData.sys?.sunset;
       this.sunrise = new Date(sunriseUNIX * 1000).toLocaleTimeString("en-US");

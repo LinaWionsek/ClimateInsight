@@ -14,11 +14,15 @@ import {MatButtonModule} from '@angular/material/button';
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss',
 })
+
 export class MainComponent {
   private dataService = inject(DataService);
   cityName: string = '';
   
 
+  /**
+   * Submits the city name to the DataService and clears the city name input.
+   */
 submitCity() {
   this.dataService.getData(this.cityName);
   this.cityName = '';

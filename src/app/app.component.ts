@@ -37,14 +37,19 @@ export class AppComponent {
 
   private _mobileQueryListener: () => void;
 
+  /**
+   * Injects ChangeDetectorRef and MediaMatcher.
+   * Creates a MediaQueryList object that checks if the screen width is 768px or less.
+   * The matches property of this object indicates whether the condition is currently met.
+   * Defines a _mobileQueryListener - tells angular to refresh view.
+   * Adds mobileQuery listener - this._mobileQueryListener is executed when mobileQuery changes -> changeDetectorRef.detectChanges()
+   */
   constructor() {
     const changeDetectorRef = inject(ChangeDetectorRef);
     const media = inject(MediaMatcher);
-
     this.mobileQuery = media.matchMedia('(max-width: 768px)');
     //creates a MediaQueryList object that checks if the screen width is 600px or less.
     //The matches property of this object indicates whether the condition is currently met.
-
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     //defination  of _mobileQueryListener - tells angular to refresh view
     this.mobileQuery.addEventListener('change', this._mobileQueryListener);
@@ -52,6 +57,11 @@ export class AppComponent {
   }
 
   
+  /**
+   * Called when the component is about to be destroyed.
+   * Removes the event listener from the MediaQueryList object.
+   * This is necessary to prevent a memory leak.
+   */
   ngOnDestroy(): void {
     this.mobileQuery.removeEventListener('change', this._mobileQueryListener);
   }
